@@ -34,3 +34,48 @@
 
 
 // Empieza aquí tu código
+
+//JS nativo 
+//var slides = document.querySelectorAll(".slide")
+
+// jQuery 
+var slides = $(".slide");
+var botonNext = $("#siguiente");
+var botonPrev = $("#anterior");
+var total = slides.lenght;
+var actual = 0;
+
+function mostrar(indiceSlide) {
+    slides.eq(actual).fadeOut();
+    actual = n;
+    slides.eq(actual).fadeIn();
+}
+
+function siguiente() {
+    var n = actual + 1;
+
+    if (n === total) {
+        n = 0
+    }
+
+    mostrar(n);
+}
+
+function anterior() {
+    var n = actual - 1;
+
+    if (n < 0) { 
+    n = total = -1;
+    }
+
+}
+
+
+// Eventos en botones 
+botonNext.on("click", function() {
+    siguiente();
+});
+
+botonPrev.on("click", function() {
+    anterior();
+});
