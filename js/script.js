@@ -44,12 +44,19 @@ var botonNext = $("#siguiente");
 var botonPrev = $("#anterior");
 var total = slides.lenght;
 var actual = 0;
+// var contador = $("#contador"); 
 
 function mostrar(indiceSlide) {
     slides.eq(actual).fadeOut();
     actual = n;
     slides.eq(actual).fadeIn();
+
+    // Actualizamos contador 
+    $("#contador").text((actual+1) + "/" + total);
 }
+
+// Funcionamiento automático con la función setInterval(), esta función tiene 2 parámetros: primero es lo que quiero que haga y el segundo cada cuanto tiempo
+var automatico = setInterval(siguiente,3000); // 3 segundos
 
 function siguiente() {
     var n = actual + 1;
